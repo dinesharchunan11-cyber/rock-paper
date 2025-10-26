@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Rock Paper Scissors</title>
+    <style>
+      html, body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: black;
+        background-position: center;
+        background-size: cover; /* makes the background fill the screen */
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-family: Arial, sans-serif;
+      }
+
+      button {
+        margin: 10px;
+        padding: 10px 20px;
+        font-size: 18px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        background-color: rgba(255, 255, 255, 0.7);
+        transition: all ease 0.4s;
+      
+         box-shadow: 0px 0px 18px rgb(4, 235, 215);
+
+      }
+     
+      span{
+        transition:all ease 0.4s;
+        color:rgb(15, 15, 15);
+      }
+      button:hover span{
+        display: inline-block;
+        transform: scale(1.1);
+        background-color: aqua;
+        color:black;
+       
+               
+      }
+
+      
+
+      button:hover {
+        background-color: rgba(255, 255, 255, 1);
+        box-shadow: 0px 0px 18px rgb(243, 241, 241);
+        background-color: aqua;
+       
+      }
+       
+
+     
+
+      #result {
+       margin-top: 40px;
+        font-size: 20px;
+        color: rgb(236, 230, 230);
+        text-shadow: 0 0 5px black;
+        box-shadow: inset 0px 0px 10px rgb(9, 234, 241);
+        cursor: pointer;
+        border-radius: 50px;
+        width: 600px;
+        padding: 10px;
+        text-align: center;
+      }
+      #result:hover{
+        box-shadow: inset 0px 0px 15px rgb(9, 234, 241);
+       
+      }
+      #res{
+        color:white;
+        margin-bottom: 20px;
+        letter-spacing: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id =res>
+      see who  gonna win
+    </div>
+    <button onclick="play('rock')"><span>Rock</span></button>
+    <button onclick="play('paper')"><span>paper</span></button>
+    <button onclick="play('scissors')"><span>scissors</span></button>
+
+    <div id="result">
+       result:
+    </div>
+
+    <script>
+      alert("this is my first java project")
+      function play(userChoice) {
+        const choices = ['rock', 'paper', 'scissors'];
+        const computerChoice = choices[Math.floor(Math.random() * 3)];
+
+        let result = '';
+        if (userChoice === computerChoice) {
+          result = "It's a tie!";
+        } else if (
+          (userChoice === 'rock' && computerChoice === 'scissors') ||
+          (userChoice === 'paper' && computerChoice === 'rock') ||
+          (userChoice === 'scissors' && computerChoice === 'paper')
+        ) {
+          result = 'You win!';
+        } else {
+          result = 'Computer wins!';
+          
+        }
+
+        document.getElementById('result').innerText = 
+          `You picked: ${userChoice}\nComputer picked: ${computerChoice}`;
+        document.getElementById('res').innerText=result;
+      }
+    </script>
+  </body>
+</html>
